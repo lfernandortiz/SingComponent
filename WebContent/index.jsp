@@ -20,8 +20,8 @@
     
     <section id="main-section">
     	<div class="row align-center">
-    		<div class="columns small-8"><a href="${pageContext.request.contextPath}/jsignature.jsp" class="button warning expanded">JSignature</a></div>
-    		<div class="columns small-8"><a href="${pageContext.request.contextPath}/signaturepad.jsp" class="button success expanded">Signature_pad</a></div>
+    		<div class="columns small-9"><a href="${pageContext.request.contextPath}/jsignature.jsp" class="button warning expanded">JSignature</a></div>
+    		<div class="columns small-9"><a href="${pageContext.request.contextPath}/signaturepad.jsp" class="button success expanded">Signature_pad</a></div>
     	</div>
     </section>
 

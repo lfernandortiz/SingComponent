@@ -41,12 +41,14 @@
     		<div class="columns small-12"> 
     			<!-- <a href="" class="button expanded" id="btn-jSignature">Submit</a> -->
     			<input type="submit" value="Submit" class="button expanded" id="btn-jSignature"/>
-    			<a href="${pageContext.request.contextPath}/signaturepad.jsp" class="button expanded alert" id="btn-cancel">Reset</a>     			
+    			<p class="button expanded alert" id="btn-cancel">Reset</p>
+    			<p class="button expanded success" id="btn-restore">Restore</p>     			
     			<div id="inner-jSignature"></div>
     		</div>
     	</div>
     	<img src="" alt="" id="show-sign" class="float-center"/>
     	<input type="hidden" name="sign" id="sign-b64"/>
+    	<input type="hidden" name="restore-sign" id="restore-sign"/>
     	<input type="hidden" name="domparam" id="domparm" />
     	</form>
     </section>

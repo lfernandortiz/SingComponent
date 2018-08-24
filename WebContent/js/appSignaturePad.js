@@ -1,15 +1,62 @@
 /**
  * 
  */
+// Sign Object
+var signaturePad;
+// Data Restore
+var restoreSign; 
+
 function init(){
 	console.log("Init components..");
+
+	//It create object SignaturePad
+	var canvas = document.querySelector("canvas");
+	signaturePad = new SignaturePad(canvas);
+	
+	//Register event for responsive functions of canvas
 	resizePad();
 	
-	var canvas = document.querySelector("canvas");
 	
-	console.log(canvas);
+	//Register event for submmit button
+	var btn = document.getElementById("btn-jSignature");
+	btn.addEventListener("click", processSign, false);	
+	
+	document.getElementById("form-sign").addEventListener("submit", function(e){ 
+	e.preventDefault()}, false);
+	
+	var btnCancel= document.getElementById("btn-cancel");
+	btnCancel.addEventListener("click", reset, false);
+	
+	var btnReset= document.getElementById("btn-restore");
+	btnReset.addEventListener("click", restore, false);
+	
+}
 
-	var signaturePad = new SignaturePad(canvas);
+
+function processSign(){
+	console.log("Process Sign :-) ..");
+	
+	//get Data B64
+	var data = signaturePad.toDataURL('image/jpeg');
+	//set Data in input hidden
+	document.querySelector("#sign-b64").value = data;
+	console.log("----------" + data);
+	
+	//set DataRestore componente
+	restoreSign = signaturePad.toData(); 
+	document.querySelector("#restore-sign").value = restoreSign;	
+	console.log(">>>>>>>" +  restoreSign);
+	
+	
+}
+
+
+function reset(){
+	signaturePad.clear();
+}
+
+function restore(){
+	signaturePad.fromData(restoreSign);
 }
 
 function resizePad(){
