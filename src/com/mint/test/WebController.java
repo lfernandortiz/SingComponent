@@ -97,31 +97,31 @@ public class WebController extends HttpServlet {
 		}
 		
 		
-		
+		//restore signature for Signature_pad
 		if( option.equals("rsp")){
 			
 			String coordinates = request.getParameter("restore-sign");
 			System.out.println("Coordinates: " + coordinates);
 			
 			request.setAttribute("imgCoordinates", coordinates);
-			
+			response.setHeader("X-XSS-Protection", "0; mode=unblock");
 			request.getRequestDispatcher("signaturepad.jsp").forward(request, response);
 		}
 		
 		
-		
+		//restore signature for JSignature
 		if( option.equals("rspjs")){
 			
 			String coordinates = request.getParameter("restore-sign");
 			System.out.println("Coordinates: " + coordinates);
 			
 			request.setAttribute("imgCoordinates", coordinates);
-			
-			request.getRequestDispatcher("jssignature.jsp").forward(request, response);
+			response.setHeader("X-XSS-Protection", "0; mode=unblock");
+			request.getRequestDispatcher("jsignature.jsp").forward(request, response);
 		}
 		
 		
-		
+		//Export to pdf for both libraries
 		if( option.equals("topdf")){
 			String domString = request.getParameter("domparam");
 			//System.out.println("Dom"+domString);

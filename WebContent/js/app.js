@@ -41,7 +41,7 @@ function processSign(){
 	console.log("Process Sign :-) ..");
 	
 	//get Data sign
-	var datapair = $sigdiv.jSignature("getData", "svgbase64"); 
+	var datapair = $sigdiv.jSignature("getData", "image"); 
 	var i = new Image();
 	imgB64 = "data:" + datapair[0] + "," + datapair[1]
 	i.src = imgB64;
@@ -79,7 +79,8 @@ function reset(){
 
 
 function restore(){
-	$sigdiv.jSignature("setData", "data:" + restoreSign.join(",")) 
+	console.log(restoreSign);
+	$sigdiv.jSignature("setData", "data:" + restoreSign) 
 }
 
 //Register event initial
