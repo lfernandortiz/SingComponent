@@ -16,7 +16,7 @@ function init(){
 	
 	//Register event for responsive functions of canvas
 	resizePad();
-	
+	//Register event for responsive functions of canvas
 	window.addEventListener("orientationchange", function() {
 	    console.log("Orientationchange event");
 	    restoreSign = signaturePad.toData(); 
@@ -25,7 +25,7 @@ function init(){
 	    var canvas = document.querySelector("canvas");
 	    signaturePad = new SignaturePad(canvas, {backgroundColor: "rgb(255,255,255)"});
 		orientationRestoreSign();
-		//Register event for responsive functions of canvas
+		
 		
 	   
 	});
