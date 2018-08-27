@@ -1,14 +1,25 @@
-/*   .columns{
+/* .columns{
 	border: 1px solid #00ff00;
 }
 
 .row{
 	border: 1px solid #ff0000;
-}   
- */
-h3{
+}   */
+ 
+h3, h4{
   margin-top:1rem;
   text-align: center!important;
+}
+
+.jsignature{
+	color: #ff8000;
+	text-shadow: 1px 1px 2px #636363;
+}
+
+.signature_pad{	
+	color: #37bb20;
+	font-weight: bold;
+	text-shadow: 1px 1px 2px #636363;
 }
 
 .titles{
@@ -17,11 +28,7 @@ h3{
 #signature{
 	
 	padding:20px;
-	border: 2px solid #7e7e7e;
-}
-
-#btn-jSignature{
-	margin-top: 1rem;
+	border: 2px dotted #7e7e7e;
 }
 
 #inner-jSignature{}
@@ -33,7 +40,7 @@ h3{
 .sign-result{
 	margin-top:1rem;
 	padding:20px;
-	border: 2px solid #7e7e7e;
+	border: 2px solid #d9d9d9;
 }
 
 .back{
@@ -43,6 +50,11 @@ h3{
 
 .button.success{
 	color: #fff;
+}
+
+.button.secondary {
+    background-color: #dfdfdf;
+    color: #0a0a0a;
 }
 
 
@@ -55,7 +67,7 @@ h3{
 	
 }
 .signature-pad {
-  border: 1px solid #3d3a41;
+  border: 2px dotted #7e7e7e;
   font-size: 10px;
   /* width: 100%;
   height: 100%; */
@@ -75,6 +87,11 @@ canvas {
   height: 100%;
   border-radius: 4px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.02) inset;
+  margin-bottom: 0.3rem;
+}
+
+.buttons-container{
+	margin-top: 1rem;
 }
 
 @media screen and (max-width: 39.9375em) {
