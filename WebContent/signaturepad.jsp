@@ -23,15 +23,15 @@
     
     <section>
     	
-    	<div class="row">
-    		<div class="columns small-12">
+    	<div class="row align-center">
+    		<div class="columns small-8">
     			<a href="${pageContext.request.contextPath}" id="volver"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
     		</div>
     	</div>
     	<form action="${pageContext.request.contextPath}/WebController" id="form-sign" method="post">
     	<input type="hidden" name="option" id="option" />
     	<div class="row align-center">
-    		<div class="columns small-12">
+    		<div class="columns small-12 medium-8">
 
 					<div id="signature-pad" class="signature-pad">
 						<div class="signature-pad--body">
@@ -42,7 +42,9 @@
 			</div>
     	</div>
     	<div class="row align-center buttons-container">
-	    	<div class="columns small-12 medium-6">
+    	<div class="columns small-8">
+    		<div class="row">
+    		<div class="columns small-12 medium-6">
 	    		<p class="button expanded secondary" id="btn-jSignature"><i class="fa fa-check" aria-hidden="true"></i> Submit</p>
 	    	</div>
 	    	<div class="columns small-12 medium-6">
@@ -53,6 +55,9 @@
     			<!-- <a href="" class="button expanded" id="btn-jSignature">Submit</a> -->
     			<div id="inner-jSignature"></div>
     		</div>
+    		</div>
+    	</div>
+	    	
     	</div>
     	<img src="" alt="" id="show-sign" class="float-center"/>
     	<input type="hidden" name="sign" id="sign-b64"/>
