@@ -5,12 +5,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foundation for Sites</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
+    <title>App Test Signature Components</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">    
-    
+    <meta name="description" content="App for test of Signature_pad and JSignature Libraries">
+    <meta name="keywords" content="">
+    <meta name="author" content="MayaSoft - Mint">
+    <meta property="og:title" content="App Test Signature Components" />
+	<meta property="og:url" content="http://dromedicas.sytes.net:8080/SignComponent/" />
+	<meta property="og:description" content="App for test of Signature_pad and JSignature Libraries">
+	<!-- <meta property="og:image" content=""> -->
+	<meta property="og:type" content="Application" />
+	<meta name="HandheldFriendly" content="True">
+	
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
+    
   </head>
   <body>
     

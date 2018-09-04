@@ -3,6 +3,7 @@ package com.mint.test;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -93,6 +94,7 @@ public class WebController extends HttpServlet {
 			request.setAttribute("imgCoordinates", coordinates);
 			response.setHeader("X-XSS-Protection", "0; mode=unblock");
 			
+			
 			request.getRequestDispatcher("result.jsp").forward(request, response);
 		}
 		
@@ -128,7 +130,21 @@ public class WebController extends HttpServlet {
 			
 			byte[] bytesPdf =getConversionHtmlToPdf(domString);
 			
-			FileOutputStream stream = new FileOutputStream("C:\\AppServ\\filespdf\\example.pdf");
+			//
+			if (!valideteFolder()) {
+				File f = new File("C:\\pdfsfile");
+				try {
+					if (f.mkdir())
+						System.out.println("Directory Created");
+					else
+						System.out.println("Directory is not created");
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			String fileName = "C:\\pdfsfile\\example"+ System.currentTimeMillis()+".pdf";
+			
+			FileOutputStream stream = new FileOutputStream(fileName);
 			try {
 			    stream.write(bytesPdf);
 			} finally {
@@ -142,7 +158,7 @@ public class WebController extends HttpServlet {
 		                "attachment; filename=fichero.pdf");
 		        ServletOutputStream streamServlet = response.getOutputStream();
 		        FileInputStream input = new FileInputStream(
-		                "C:\\AppServ\\filespdf\\example.pdf");
+		        		fileName);
 		        BufferedInputStream buf = new BufferedInputStream(input);
 		        int readBytes = 0;
 
@@ -173,6 +189,13 @@ public class WebController extends HttpServlet {
 				"input[type=\"radio\"],input[type=\"checkbox\"] { vertical-align:middle; margin:1px 3px 0 1px; }",
 				true);
 		pd4ml.addStyle("input[type=\"text\"],textarea { margin:0px; padding:0px; }", true);
+		
+		
+		//pd4ml.addStyle("img {max-width: 3rem}",true);
+		pd4ml.addStyle(".sign-result {max-width: 10%;  margin-top: 1rem; border: 2px solid #d9d9d9;}",true);
+		//pd4ml.addStyle(".#img-sign { max-width: 10%!important;}",true);
+			  
+		
 		pd4ml.addStyle(
 				"INPUT[disabled] { disabled: false; } INPUT[disabled=\"true\"] { disabled: false; } INPUT[disabled=\"disabled\"] { disabled: false; }",
 				true);
@@ -205,6 +228,17 @@ public class WebController extends HttpServlet {
 		}
 
 		return output.toByteArray();
+	}
+	
+	
+	//validate if exist directory for pdf file
+	private boolean valideteFolder(){
+		File f = new File("C:\\pdfsfile");
+		if (f.exists() && f.isDirectory()) {
+		   return true;
+		}else {
+			return false;
+		}		
 	}
 
 }

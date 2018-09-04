@@ -54,11 +54,14 @@
     	</form>
     </section>
 
- 	<script src="libs/jquery.js"></script>
+	<!-- Jquery 1.111.1 -->
+ 	<scrip src="https://code.jquery.com/jquery-1.11.1.min.js"></scrip>
+ 	 	
+ 	<!-- <script src="libs/jquery.js"></script> -->
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
-    
+      
    
     <!-- CDN para jSignature -->
     <script src="libs/jSignature.min.noconflict.js"></script>

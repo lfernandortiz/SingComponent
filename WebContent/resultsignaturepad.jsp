@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/font-awesome.css">
+    
+    <style id="style"></style>
   </head>
   <body>
     
@@ -23,8 +25,8 @@
     
     <section>
     	
-    	<div class="row">
-    		<div class="columns small-12">
+    	<div class="row align-center">
+    		<div class="columns small-8">
     			<a href="${pageContext.request.contextPath}" id="volver"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
     		</div>
     	</div>
@@ -32,19 +34,25 @@
     	<input type="hidden" name="option" id="option" />
     	<!-- this is the signature captured -->
     	<div class="row align-center">
-    		<div class="columns small-12 ">
+    		<div class="columns small-12 medium-8" id="sign-conten-pad">
     			<div class="sign-result">
-    				<img src="${imgbase64}" alt="" id="img-sign" class="float-center"/>
+    				<img src="${imgbase64}" alt="" id="img-sign" class="float-center" style="max-width: 70%" />
     			</div>    			
     		</div>    		
     	</div>
     	<div class="row align-center buttons-container">
+    	<div class="columns small-8">
+    		<div class="row">
+    		
 	    	<div class="columns small-12 medium-6">
 	    		<p class="button expanded secondary" id="btn-restore"><i class="fa fa-undo" aria-hidden="true"></i> Restore</p>    
 	    	</div>
 	    	<div class="columns small-12 medium-6">
 	    		<p class="button expanded secondary" id="export"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> To Pdf</p>    
 	    	</div>
+	    	</div>
+	    	</div>
+	    	
     	</div>
     	<img src="" alt="" id="show-sign" class="float-center"/>
     	<input type="hidden" name="sign" id="sign-b64"/>
