@@ -12,26 +12,20 @@ function init(){
 	//It create object SignaturePad
 	var canvas = document.querySelector("canvas");
 	signaturePad = new SignaturePad(canvas, {backgroundColor: "rgb(255,255,255)"});
-	
-	
+		
 	//Register event for responsive functions of canvas
 	resizePad();
 	//Register event for responsive functions of canvas
 	window.addEventListener("orientationchange", function() {
-	    console.log("Orientationchange event");
 	    restoreSign = signaturePad.toData(); 
 	    //signaturePad.clear();
 	    resizePad();
 	    var canvas = document.querySelector("canvas");
 	    signaturePad = new SignaturePad(canvas, {backgroundColor: "rgb(255,255,255)"});
 		orientationRestoreSign();
-		
-		
-	   
 	});
 	
 	window.addEventListener('resize', function(){
-		console.log("Resize event");
 		restoreSign = signaturePad.toData(); 
 		resizePad();
 		
@@ -41,7 +35,6 @@ function init(){
 		
 		//Register event for responsive functions of canvas
 	    orientationRestoreSign()
-		
 	}, false);
 	
 	
@@ -49,13 +42,8 @@ function init(){
 	var btn = document.getElementById("btn-jSignature");
 	btn.addEventListener("click", processSign, false);	
 	
-//	document.getElementById("form-sign").addEventListener("submit", function(e){ 
-//	e.preventDefault()}, false);
-	
 	var btnCancel= document.getElementById("btn-cancel");
 	btnCancel.addEventListener("click", reset, false);
-	
-	
 	
 	//here to validate if there is that restore the signature
 	var jsonCoordinates = document.querySelector("#restore-sign").value;
@@ -69,8 +57,7 @@ function init(){
 
 
 function processSign(){
-	console.log("Process Sign :-) ..");
-	
+
 	//get Data B64
 	var data = signaturePad.toDataURL('image/png');
 	//set Data in input hidden
@@ -83,30 +70,17 @@ function processSign(){
 	var coordinateString = JSON.stringify(restoreSign);
 	document.querySelector("#restore-sign").value = encodeURIComponent(coordinateString);
 	
-	
-	
 	//to json
 	var res = JSON.parse(coordinateString);
 	restoreSign = res;
 	
-	console.log("Coordinates:" + restoreSign);
-	console.log("Coordinates String:" + coordinateString);
-	
-	
-//	var prvw = document.querySelector("#show-sign");	
-//	prvw.src = "data:" +  data; 
-//	prvw.style.display='block';
-	
 	document.querySelector("#option").value = "spad";
-		
 	document.querySelector("#form-sign").submit();
 }
 
 
 function orientationRestoreSign(){
 	//set DataRestore componente
-	
-	console.log("Rescate :-(" + restoreSign);
 	signaturePad.fromData(restoreSign);
 }
 

@@ -28,11 +28,6 @@ function init(){
 		restoreSign = coordinates;
 		restore();
 	}
-	
-	
-//	document.getElementById("form-sign").addEventListener("submit", function(e){ 
-//		e.preventDefault()}, false);
-	
 
 	
 }
@@ -46,17 +41,8 @@ function processSign(){
 	imgB64 = "data:" + datapair[0] + "," + datapair[1]
 	i.src = imgB64;
 	
-	
-	console.log("Firma base64:"  + datapair)
-	
 	restoreSign = $sigdiv.jSignature("getData","base30") 
-	console.log("--" + restoreSign );
 	document.querySelector("#restore-sign").value = restoreSign;
-	
-	//preview
-//	var prvw = document.querySelector("#show-sign");	
-//	prvw.src = imgB64; 
-//	prvw.style.display='block';
 	
 	//set value in input hidden
 	document.querySelector("#sign-b64").value = imgB64;
