@@ -2,6 +2,7 @@
  * @lfernandortiz
  */
 
+
 // Sign Object
 var signaturePad;
 // Data Restore
@@ -16,8 +17,9 @@ function init(){
 		
 	//Register event for responsive functions of canvas
 	resizePad();
-	
+
 	//Register event for orientationchange
+
 	window.addEventListener("orientationchange", function() {
 	    restoreSign = signaturePad.toData(); 
 	    //signaturePad.clear();
@@ -36,6 +38,7 @@ function init(){
 	var btn = document.getElementById("btn-jSignature");
 	btn.addEventListener("click", processSign, false);	
 	
+
 	//Register event for reset button
 	var btnCancel= document.getElementById("btn-cancel");
 	btnCancel.addEventListener("click", reset, false);
@@ -73,7 +76,8 @@ function processSign(){
 	document.querySelector("#form-sign").submit();
 }
 
-// Restore the signature in component  
+
+// Restore the signature in component 
 function orientationRestoreSign(){
 	//set DataRestore componente
 	signaturePad.fromData(restoreSign);
@@ -86,6 +90,7 @@ function reset(){
 	document.querySelector("#restore-sign").value="";
 	init()
 }
+
 
 // Restore signature
 function restore(){
@@ -102,8 +107,7 @@ function resizePad(){
 	 var ratio =  Math.max(window.devicePixelRatio || 1, 1);
 	 canvas.width = canvas.offsetWidth * ratio;
 	 canvas.height = canvas.offsetHeight * ratio;
-	 canvas.getContext("2d").scale(ratio, ratio);
-	
+	 canvas.getContext("2d").scale(ratio, ratio);	
 }
 
 
