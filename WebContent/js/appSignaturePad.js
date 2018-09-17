@@ -11,12 +11,15 @@ function init(){
 
 	//It create object SignaturePad
 	var canvas = document.querySelector("canvas");
-	signaturePad = new SignaturePad(canvas, {backgroundColor: "rgb(255,255,255)"});
 		
+	signaturePad = new SignaturePad(canvas, {backgroundColor: "rgb(255,255,255)"});
+	
+	
 	//Register event for responsive functions of canvas
 	resizePad();
 	//Register event for responsive functions of canvas
 	window.addEventListener("orientationchange", function() {
+		console.log("orientationchange")
 	    restoreSign = signaturePad.toData(); 
 	    //signaturePad.clear();
 	    resizePad();
@@ -26,6 +29,7 @@ function init(){
 	});
 	
 	window.addEventListener('resize', function(){
+		console.log("resize")
 		restoreSign = signaturePad.toData(); 
 		resizePad();
 		
@@ -42,7 +46,7 @@ function init(){
 	var btn = document.getElementById("btn-jSignature");
 	btn.addEventListener("click", processSign, false);	
 	
-	var btnCancel= document.getElementById("btn-cancel");
+	var btnCancel= document.querySelector("#btn-cancel");
 	btnCancel.addEventListener("click", reset, false);
 	
 	//here to validate if there is that restore the signature
@@ -65,9 +69,12 @@ function processSign(){
 	
 	//set DataRestore componente
 	restoreSign = signaturePad.toData(); 
+	
+	console.log(restoreSign);
 		
 	//From Array object to String
 	var coordinateString = JSON.stringify(restoreSign);
+	console.log(coordinateString);
 	document.querySelector("#restore-sign").value = encodeURIComponent(coordinateString);
 	
 	//to json

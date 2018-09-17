@@ -64,7 +64,7 @@ public class WebController extends HttpServlet {
 			//1 It get img as string B64
 			String imgB64 = request.getParameter("sign");
 			
-			System.out.println("Img recived: ");
+			System.out.println("Img recived:----> " + imgB64);
 			System.out.println( imgB64);
 			
 			//2 It get vector sign for restore
@@ -83,7 +83,7 @@ public class WebController extends HttpServlet {
 			//1 It get img as string B64
 			String imgB64 = request.getParameter("sign");
 			
-			System.out.println("Img recived: ");
+			System.out.println("Img recived ----: ");
 			System.out.println( imgB64);
 			
 			//2 It get vector sign for restore
@@ -126,7 +126,7 @@ public class WebController extends HttpServlet {
 		//Export to pdf for both libraries
 		if( option.equals("topdf")){
 			String domString = request.getParameter("domparam");
-			//System.out.println("Dom"+domString);
+			System.out.println("Dom"+domString);
 			
 			byte[] bytesPdf =getConversionHtmlToPdf(domString);
 			
