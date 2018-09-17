@@ -39,26 +39,7 @@ function restoreSignature(){
 
 function exportToPdf(){
 	
-	console.log("Exporting to pdf  xxxx...");	
-		
-	var sheets = document.styleSheets;
-	console.log(sheets);
-		
-	var css = document.querySelector("#style");
-	var cssTextFinal = "";
-	
-	
-	//console.log("length: " + sheets[0] );
-	
-	for( var x = 0; x < sheets.length; x++){
-		for( var i = 0; i < sheets[x].cssRules.length ; i++  ){
-			cssTextFinal += sheets[x].cssRules[i].cssText 
-			//
-			console.log( cssTextFinal );
-		}
-	}
-	
-	//css.innerHTML= cssTextFinal;
+	console.log("Exporting to pdf ...");			
 	
 	document.querySelector("#domparm").value = document.documentElement.innerHTML;
 	document.querySelector("#option").value = "topdf";

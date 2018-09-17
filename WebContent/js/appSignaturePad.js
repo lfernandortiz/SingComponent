@@ -1,6 +1,8 @@
 /**
- * 
+ * @lfernandortiz
  */
+
+
 // Sign Object
 var signaturePad;
 // Data Restore
@@ -17,36 +19,31 @@ function init(){
 	
 	//Register event for responsive functions of canvas
 	resizePad();
-	//Register event for responsive functions of canvas
+
+	//Register event for orientationchange
+
 	window.addEventListener("orientationchange", function() {
 		console.log("orientationchange")
 	    restoreSign = signaturePad.toData(); 
 	    //signaturePad.clear();
 	    resizePad();
-	    var canvas = document.querySelector("canvas");
-	    signaturePad = new SignaturePad(canvas, {backgroundColor: "rgb(255,255,255)"});
 		orientationRestoreSign();
 	});
-	
+	//Register event for resize
 	window.addEventListener('resize', function(){
 		console.log("resize")
 		restoreSign = signaturePad.toData(); 
-		resizePad();
-		
-		signaturePad.clear();
-	    var canvas = document.querySelector("canvas");
-	    signaturePad = new SignaturePad(canvas, {backgroundColor: "rgb(255,255,255)"});
-		
-		//Register event for responsive functions of canvas
+		resizePad();	
 	    orientationRestoreSign()
 	}, false);
 	
 	
 	//Register event for submmit button
 	var btn = document.getElementById("btn-jSignature");
-	btn.addEventListener("click", processSign, false);	
-	
+	btn.addEventListener("click", processSign, false);		
+
 	var btnCancel= document.querySelector("#btn-cancel");
+
 	btnCancel.addEventListener("click", reset, false);
 	
 	//here to validate if there is that restore the signature
@@ -86,12 +83,13 @@ function processSign(){
 }
 
 
+// Restore the signature in component 
 function orientationRestoreSign(){
 	//set DataRestore componente
 	signaturePad.fromData(restoreSign);
 }
 
-
+// Clear canvas
 function reset(){
 	signaturePad.clear();
 	//re-init component
@@ -99,39 +97,23 @@ function reset(){
 	init()
 }
 
+
+// Restore signature
 function restore(){
-	var canvas = document.querySelector("canvas");
-	signaturePad = new SignaturePad(canvas, {backgroundColor: "rgb(255,255,255)"});	
-	resizePad();
-	
-	signaturePad.fromData(restoreSign);
-	
+	resizePad();	
+	signaturePad.fromData(restoreSign);	
 }
 
 
-function resizePad(){
+function resizePad(){		
 	var canvas = document.querySelector('canvas');
-
 	// Adjust canvas coordinate space taking into account pixel ratio,
 	// to make it look crisp on mobile devices.
-	// This also causes canvas to be cleared.
-	function resizeCanvas() {
-	    // When zoomed out to less than 100%, for some very strange reason,
-	    // some browsers report devicePixelRatio as less than 1
-	    // and only part of the canvas is cleared then.
-	    var ratio =  Math.max(window.devicePixelRatio || 1, 1);
-	    canvas.width = canvas.offsetWidth * ratio;
-	    canvas.height = canvas.offsetHeight * ratio;
-	    canvas.getContext("2d").scale(ratio, ratio);
-	}
-
-	window.onresize = resizeCanvas;
-	resizeCanvas();
-
-	var signaturePad = new SignaturePad(canvas, {
-	  backgroundColor: 'rgb(255, 255, 255)' // necessary for saving image as JPEG; can be removed is only saving as PNG or SVG
-	});
-
+	// This also causes canvas to be cleared.	
+	 var ratio =  Math.max(window.devicePixelRatio || 1, 1);
+	 canvas.width = canvas.offsetWidth * ratio;
+	 canvas.height = canvas.offsetHeight * ratio;
+	 canvas.getContext("2d").scale(ratio, ratio);	
 }
 
 
