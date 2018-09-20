@@ -46,11 +46,11 @@ function init(){
 
 	btnCancel.addEventListener("click", reset, false);
 	
-	//here to validate if there is that restore the signature
+	//here to validate if there is that restore the signature again
 	var jsonCoordinates = document.querySelector("#restore-sign").value;
 	console.log("Coordenada recibidas: "  + jsonCoordinates)
 	if(jsonCoordinates){
-		restoreSign = JSON.parse(decodeURIComponent(jsonCoordinates));
+		restoreSign = JSON.parse(decodeURIComponent(jsonCoordinates));		
 		restore();
 	}
 	
