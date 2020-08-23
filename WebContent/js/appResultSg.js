@@ -31,9 +31,6 @@ function restoreSignature(){
 
 
 
-
-
-
 function exportToPdf(){
 	console.log("Exporting to pdf...");
 	

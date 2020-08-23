@@ -13,14 +13,17 @@ function init(){
 
 	//It create object SignaturePad
 	var canvas = document.querySelector("canvas");
-	signaturePad = new SignaturePad(canvas, {backgroundColor: "rgb(255,255,255)"});
 		
+	signaturePad = new SignaturePad(canvas, {backgroundColor: "rgb(255,255,255)"});
+	
+	
 	//Register event for responsive functions of canvas
 	resizePad();
 
 	//Register event for orientationchange
 
 	window.addEventListener("orientationchange", function() {
+		console.log("orientationchange")
 	    restoreSign = signaturePad.toData(); 
 	    //signaturePad.clear();
 	    resizePad();
@@ -28,6 +31,7 @@ function init(){
 	});
 	//Register event for resize
 	window.addEventListener('resize', function(){
+		console.log("resize")
 		restoreSign = signaturePad.toData(); 
 		resizePad();	
 	    orientationRestoreSign()
@@ -36,18 +40,17 @@ function init(){
 	
 	//Register event for submmit button
 	var btn = document.getElementById("btn-jSignature");
-	btn.addEventListener("click", processSign, false);	
-	
+	btn.addEventListener("click", processSign, false);		
 
-	//Register event for reset button
-	var btnCancel= document.getElementById("btn-cancel");
+	var btnCancel= document.querySelector("#btn-cancel");
+
 	btnCancel.addEventListener("click", reset, false);
 	
-	//here to validate if there is that restore the signature
+	//here to validate if there is that restore the signature again
 	var jsonCoordinates = document.querySelector("#restore-sign").value;
 	console.log("Coordenada recibidas: "  + jsonCoordinates)
 	if(jsonCoordinates){
-		restoreSign = JSON.parse(decodeURIComponent(jsonCoordinates));
+		restoreSign = JSON.parse(decodeURIComponent(jsonCoordinates));		
 		restore();
 	}
 	
@@ -63,9 +66,12 @@ function processSign(){
 	
 	//set DataRestore componente
 	restoreSign = signaturePad.toData(); 
+	
+	console.log(restoreSign);
 		
 	//From Array object to String
 	var coordinateString = JSON.stringify(restoreSign);
+	console.log(coordinateString);
 	document.querySelector("#restore-sign").value = encodeURIComponent(coordinateString);
 	
 	//to json
